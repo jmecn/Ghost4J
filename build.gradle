@@ -1,0 +1,35 @@
+apply plugin: 'java'
+
+version = '1.0.2'
+sourceCompatibility = 1.6
+targetCompatibility = 1.6
+[compileJava, compileTestJava, javadoc]*.options*.encoding = 'UTF-8'  
+
+sourceSets {
+    main {
+        resources {
+            srcDir 'src/main/resources'
+        }
+    }
+}
+
+repositories {
+    jcenter()
+    mavenCentral()
+}
+
+dependencies {
+    // slf4j
+    compile 'org.slf4j:slf4j-log4j12:1.7.21'
+	compile 'org.slf4j:jcl-over-slf4j:1.7.21'
+	compile 'net.java.dev.jna:jna:4.1.0'
+	compile 'commons-beanutils:commons-beanutils:1.9.3'
+	compile 'org.apache.xmlgraphics:xmlgraphics-commons:1.4'
+	compile 'com.itextpdf:itextpdf:5.5.10'
+	
+	runtime 'org.apache.santuario:xmlsec:1.5.1'
+	runtime 'org.bouncycastle:bcprov-jdk15on:1.49'
+	runtime 'org.bouncycastle:bcpkix-jdk15on:1.49'
+	
+	testCompile 'junit:junit:4.12'
+}
